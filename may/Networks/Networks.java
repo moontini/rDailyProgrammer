@@ -3,6 +3,12 @@ import java.util.Vector;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+/**
+ *This is the soluton to challange #216 on reddit.com/r/dailyprogrammer
+ * 
+ */
+
+
 public class Networks
 {
 	public static void compare(int i, int j, int[] wires)

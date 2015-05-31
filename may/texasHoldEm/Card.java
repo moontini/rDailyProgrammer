@@ -1,4 +1,10 @@
-public class Card
+
+/**
+ *This class defines a card object, that is compomarble
+ *it has a vlue, an emum suite and a name that is generated on creation
+*/
+
+public class Card implements Comparable<Card>
 {
 	int value;
 	Suite suite;
@@ -10,6 +16,20 @@ public class Card
 		suite = suiteIn;
 		name = getName();
 	}
+	
+	@Override
+	public String toString()
+	{
+		return name;
+	}
+
+	@Override
+	public int compareTo(Card o)
+	{
+		return Integer.compare(this.value,o.value);
+	}
+
+
 
 	private String getName()
 	{

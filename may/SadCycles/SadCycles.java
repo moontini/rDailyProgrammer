@@ -1,5 +1,11 @@
 import java.util.Vector;
 
+
+/**
+ *This is the solution to challenge #215 on reddit.com/r/dailyprogrammer
+ *this program finds the sad cycle of the input recursively
+ *
+*/
 public class SadCycles
 {
 	public static void sadC(int n, int p, Vector<Integer> v)
@@ -10,6 +16,7 @@ public class SadCycles
 			sum =  sum + (int)Math.pow(n%10, p);
 			n = n / 10;
 		}
+		//if sum is already in the vector, it will just repeat
 		if (v.contains(sum))
 		{
 			return;
