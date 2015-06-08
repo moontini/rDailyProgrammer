@@ -7,27 +7,21 @@ class Code
 		string[] lines = System.IO.File.ReadAllLines("input.txt");
 		for (int i=0;i<lines.Length;i++)
 		{
-			char[] arr = StringToAscii(lines[i]);
-			if (checkOmicronV(arr))
-			{
-				
-			}
+		//	char[] arr = StringToAscii(lines[i]);
+			char[,] results = decode(StringToAscii(lines[i]));
 		}
 	}
 
-	static char[] StringToAscii(string line)
+	static char[,] decode(char[] arr)
 	{
-		string[] nums = line.Split(' ');
-		char[] charArr = new char[nums.Length];
-		for (int i=0;i<nums.Length;i++)
+		char[,] ret = new char[4,arr.Length];
+		for (int i=0;i<arr.Length;i++)
 		{
-			charArr[i] = (char)Convert.ToInt32(nums[i]);
+			ret[0,i] = (char)Convert.ToInt32(arr[i] ^ 0x32);//xor the 5th bit for Omicron V
+			ret[1,i] = (char)Convert.ToInt32(arr[i] -10); //subtract 10 from the ascii value
+			ret[2,i] = (char)Convert.ToInt32(arr[i]+1);
+			ret[3,arr.length-i] = (char)Convert.ToInt32(arr[i]); //fill result backwards for Htrae
 		}
-		return charArr;
-	}
-
-	static boolean CheckOmicronV(arr)
-	{
-		
+		return ret;
 	}
 }
